@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # @@@LICENSE
 #
 # Copyright (c) 2014 LG Electronics, Inc.
@@ -34,7 +34,7 @@ def findDST(tz, months = [datetime(datetime.utcnow().year, n+1, 1) for n in rang
 	return (std, summer)
 
 def genTimeZones(do_guess = True):
-	for (cc, zoneIds) in pytz.country_timezones.items():
+	for (cc, zoneIds) in list(pytz.country_timezones.items()):
 		for zoneId in zoneIds:
 			tz = pytz.timezone(zoneId)
 			try:
@@ -147,7 +147,7 @@ uiInfo = json.load(open(os.path.join(source_dir, 'uiTzInfo.json'), 'rb'))
 ### load natural timezones from pytz
 
 timeZones = list(genTimeZones(do_guess = do_guess))
-timeZones.sort(lambda x, y: cmp(x['offsetFromUTC'], y['offsetFromUTC']))
+timeZones.sort(key = (lambda x: x['offsetFromUTC']))
 
 # gen Etc/* time-zones
 sysZones = list(genSysZones())

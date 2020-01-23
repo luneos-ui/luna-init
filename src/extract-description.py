@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # @@@LICENSE
 #
 # Copyright (c) 2014 LG Electronics, Inc.
