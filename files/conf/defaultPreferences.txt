@@ -44,7 +44,7 @@
 				"enabledLanguages": ["en","de","es","fi","fr","ru","sv","ar","cs","da","he","hu","it","nl","pl","pt","zh"],
 				"autoCapitalization": false,
 				"autoCorrection": false,
-				"predictiveText": false,
+				"predictiveText": true,
 				"spellChecking": false,
 				"keyPressFeedback": false,
 				"keyboardSize": "M"
