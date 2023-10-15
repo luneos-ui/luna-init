@@ -2,7 +2,7 @@
 	{
 		"type": "tablet",
 		"items": [
-				"org.webosports.app.browser_default",
+				"com.webos.app.enactbrowser_default",
 				"com.palm.app.email_default",
 				"com.palm.app.calendar_default",
 				"org.webosports.app.messaging_default",
