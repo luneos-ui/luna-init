@@ -17,15 +17,17 @@
 #
 # LICENSE@@@
 
-import sys, os.path, os
+import sys
+import os.path
+import os
 from getopt import gnu_getopt as getopt
-from datetime import datetime
+import datetime
 from itertools import *
 import pytz
 import json
 from abbrevs import abbrevs
 
-def findDST(tz, months = [datetime(datetime.utcnow().year, n+1, 1) for n in range(12)]):
+def findDST(tz, months = [datetime.datetime(datetime.datetime.now(datetime.UTC).year, n+1, 1) for n in range(12)]):
 	try:
 		std = next(dropwhile(lambda m: tz.dst(m).seconds != 0, months))
 	except StopIteration: # next raises this if empty list
@@ -41,7 +43,7 @@ def genTimeZones(do_guess = True):
 				(std, summer) = findDST(tz)
 			except Exception as e:
 				sys.stderr.write("Exception: %s\n  Do some magic for %s\n" % (e, tz))
-				std = datetime(datetime.utcnow().year, 1, 1)
+				std = datetime.datetime(datetime.datetime.now(datetime.UTC).year, 1, 1)
 				if tz.dst(std).seconds != 0: summer = std
 				else: summer = None
 			except StopIteration:
